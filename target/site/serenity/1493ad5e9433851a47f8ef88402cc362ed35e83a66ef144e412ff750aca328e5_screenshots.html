@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Demo Project using Serenity and Cucumber</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="64c7e6b64594eb47788a2ae9a118eca88435ee1f81528aebe13d7a48cfdf31d7.html">Post On Home Page</a></span>
+                > <span class="truncate-60"><a
+                    href="1493ad5e9433851a47f8ef88402cc362ed35e83a66ef144e412ff750aca328e5.html">post with media on group </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 22-07-2021 23:55</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fa fa-2x fa-comments-o"></i>
+                                    <span class="story-header-title">Post On Home Page </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="a7ff9cab21223406ab930cdc21718134a83a6eb957cb4dacffe33973169d9256.html">Postmediahomepage
+                                    (tag)</a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="b239eb46804b31f530d24e29b6862fd563af3cfad9e2cf4dd50d3fff8ea4ffd5.html">Postonhomepage
+                                    (tag)</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">post with media on group
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario">When the user create new media post "&lt;total&gt;" and "&lt;name&gt;" and "&lt;mediaType&gt;" and "&lt;textType&gt;" and "&lt;content&gt;"<br>Then the user see the correct media number on the post<br>When the user view post detail<br>Then the user see the correct media number on the post<br>When the user go back to previous page<br>And the user select view more option of new post<br>And the user select edit option<br>And the user update the media post "&lt;action&gt;" and "&lt;numberOfMedia&gt;" and "&lt;updatedName&gt;" and "&lt;updatedMediaType&gt;"<br>Then the user see the correct media number on the post<br>When the user select view more option of new post<br>And the user select delete option<br>And the user confirm</div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="16d46cf559be5c98b3f54bc03fa01b7ff2c04cb4649d038e1e727775576ed97d.png" title=" Example: {total=1, name=image, mediaType=.jpg, textType=text, content=one images, action=remove, numberOfMedia=all, updatedName=, updatedMediaType=, confirmation=Yes}" width="1920"/>
+                <img src="16d46cf559be5c98b3f54bc03fa01b7ff2c04cb4649d038e1e727775576ed97d.png" title=" When the user create new media post &quot;1&quot; and &quot;image&quot; and &quot;.jpg&quot; and &quot;text&quot; and &quot;one images&quot;" width="1920"/>
+                <img src="aea8e31ec05f76cdf0ef72155404b7e9972bc2258b781588c83bfe31740d974b.png" title=" When the user create new media post &quot;1&quot; and &quot;image&quot; and &quot;.jpg&quot; and &quot;text&quot; and &quot;one images&quot; (completed)" width="1920"/>
+                <img src="aea8e31ec05f76cdf0ef72155404b7e9972bc2258b781588c83bfe31740d974b.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="aea8e31ec05f76cdf0ef72155404b7e9972bc2258b781588c83bfe31740d974b.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="aea8e31ec05f76cdf0ef72155404b7e9972bc2258b781588c83bfe31740d974b.png" title=" When the user view post detail" width="1920"/>
+                <img src="82f9903bce5eff3b9a18f0359d6893ba32f16c75be820449c8e856b912502008.png" title=" When the user view post detail (completed)" width="1920"/>
+                <img src="82f9903bce5eff3b9a18f0359d6893ba32f16c75be820449c8e856b912502008.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="82f9903bce5eff3b9a18f0359d6893ba32f16c75be820449c8e856b912502008.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="82f9903bce5eff3b9a18f0359d6893ba32f16c75be820449c8e856b912502008.png" title=" When the user go back to previous page" width="1920"/>
+                <img src="3015d222f2511854c92d5f398c0d3523f14c83f4fc687708893d5a8f5b4ba4d7.png" title=" When the user go back to previous page (completed)" width="1920"/>
+                <img src="3015d222f2511854c92d5f398c0d3523f14c83f4fc687708893d5a8f5b4ba4d7.png" title=" And the user select view more option of new post" width="1920"/>
+                <img src="8ead66b01d510c9897a58e486417ea192f69aa67b7c4e5bef2feb974a8e83d51.png" title=" And the user select view more option of new post (completed)" width="1920"/>
+                <img src="8ead66b01d510c9897a58e486417ea192f69aa67b7c4e5bef2feb974a8e83d51.png" title=" And the user select edit option" width="1920"/>
+                <img src="50da15d47e6228e04d27b20ccb23784562cc39f5ab4229b8f0f364c298911f0e.png" title=" And the user select edit option (completed)" width="1920"/>
+                <img src="50da15d47e6228e04d27b20ccb23784562cc39f5ab4229b8f0f364c298911f0e.png" title=" And the user update the media post &quot;remove&quot; and &quot;all&quot; and &quot;&quot; and &quot;&quot;" width="1920"/>
+                <img src="66b98ea9ee1894432432f722570e0c7a03e3a0c4811ed45457cb1892e7e8de48.png" title=" And the user update the media post &quot;remove&quot; and &quot;all&quot; and &quot;&quot; and &quot;&quot; (completed)" width="1920"/>
+                <img src="66b98ea9ee1894432432f722570e0c7a03e3a0c4811ed45457cb1892e7e8de48.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="66b98ea9ee1894432432f722570e0c7a03e3a0c4811ed45457cb1892e7e8de48.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="66b98ea9ee1894432432f722570e0c7a03e3a0c4811ed45457cb1892e7e8de48.png" title=" When the user select view more option of new post" width="1920"/>
+                <img src="070d8ba1d42d428731e6469f9bb2da32d196fd2c3db8eb329acc85ea1fbb9e6b.png" title=" When the user select view more option of new post (completed)" width="1920"/>
+                <img src="070d8ba1d42d428731e6469f9bb2da32d196fd2c3db8eb329acc85ea1fbb9e6b.png" title=" And the user select delete option" width="1920"/>
+                <img src="a7e625714e81e5424f9606c3685f9ba6aad0f2efc3950e75ed090dad6384ab21.png" title=" And the user select delete option (completed)" width="1920"/>
+                <img src="a7e625714e81e5424f9606c3685f9ba6aad0f2efc3950e75ed090dad6384ab21.png" title=" And the user confirm" width="1920"/>
+                <img src="63f1b77fb97bf333083029c5c548a4333820b787cc050aead6a6bb33f8a084b4.png" title=" And the user confirm (completed)" width="1920"/>
+                <img src="63f1b77fb97bf333083029c5c548a4333820b787cc050aead6a6bb33f8a084b4.png" title=" Example: {total=1, name=image, mediaType=.jpg, textType=text, content=one images, action=remove, numberOfMedia=all, updatedName=, updatedMediaType=, confirmation=Yes} (completed)" width="1920"/>
+                <img src="9a32e30ec76ee7558cdb6e976591319802fa56f65abd696e253b91661c771882.png" title=" Example: {total=8, name=image, mediaType=.jpg, textType=text, content=multiple images, action=add, numberOfMedia=1, updatedName=updatedImage, updatedMediaType=.jpg, confirmation=Yes}" width="1920"/>
+                <img src="9a32e30ec76ee7558cdb6e976591319802fa56f65abd696e253b91661c771882.png" title=" When the user create new media post &quot;8&quot; and &quot;image&quot; and &quot;.jpg&quot; and &quot;text&quot; and &quot;multiple images&quot;" width="1920"/>
+                <img src="9a32e30ec76ee7558cdb6e976591319802fa56f65abd696e253b91661c771882.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="9a32e30ec76ee7558cdb6e976591319802fa56f65abd696e253b91661c771882.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="9a32e30ec76ee7558cdb6e976591319802fa56f65abd696e253b91661c771882.png" title=" When the user view post detail" width="1920"/>
+                <img src="6dc577833ca7db185c23d1b823c6a2ece89b7484d24a520179ddc8f18b97ab4a.png" title=" When the user view post detail (completed)" width="1920"/>
+                <img src="6dc577833ca7db185c23d1b823c6a2ece89b7484d24a520179ddc8f18b97ab4a.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="6dc577833ca7db185c23d1b823c6a2ece89b7484d24a520179ddc8f18b97ab4a.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="6dc577833ca7db185c23d1b823c6a2ece89b7484d24a520179ddc8f18b97ab4a.png" title=" When the user go back to previous page" width="1920"/>
+                <img src="3015d222f2511854c92d5f398c0d3523f14c83f4fc687708893d5a8f5b4ba4d7.png" title=" When the user go back to previous page (completed)" width="1920"/>
+                <img src="3015d222f2511854c92d5f398c0d3523f14c83f4fc687708893d5a8f5b4ba4d7.png" title=" And the user select view more option of new post" width="1920"/>
+                <img src="48cab57bb27708f72d5e67cbfc5a777ac30a526c73c74cf37f1de875d55dec37.png" title=" And the user select view more option of new post (completed)" width="1920"/>
+                <img src="48cab57bb27708f72d5e67cbfc5a777ac30a526c73c74cf37f1de875d55dec37.png" title=" And the user select edit option" width="1920"/>
+                <img src="4e412791891158e6b6061b68a24bdec114961d9bfeb404ad52b4078ef80084c7.png" title=" And the user select edit option (completed)" width="1920"/>
+                <img src="4e412791891158e6b6061b68a24bdec114961d9bfeb404ad52b4078ef80084c7.png" title=" And the user update the media post &quot;add&quot; and &quot;1&quot; and &quot;updatedImage&quot; and &quot;.jpg&quot;" width="1920"/>
+                <img src="1711ef63c5ec7662834472b7ad5155eb54b27982542b5b549c2ea1aa62a3bbb7.png" title=" And the user update the media post &quot;add&quot; and &quot;1&quot; and &quot;updatedImage&quot; and &quot;.jpg&quot; (completed)" width="1920"/>
+                <img src="1711ef63c5ec7662834472b7ad5155eb54b27982542b5b549c2ea1aa62a3bbb7.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="1711ef63c5ec7662834472b7ad5155eb54b27982542b5b549c2ea1aa62a3bbb7.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="1711ef63c5ec7662834472b7ad5155eb54b27982542b5b549c2ea1aa62a3bbb7.png" title=" When the user select view more option of new post" width="1920"/>
+                <img src="0fa5dbe0a1beebb7459d16fd65893e705895a6c1702184d12f5534a5b77d020e.png" title=" When the user select view more option of new post (completed)" width="1920"/>
+                <img src="0fa5dbe0a1beebb7459d16fd65893e705895a6c1702184d12f5534a5b77d020e.png" title=" And the user select delete option" width="1920"/>
+                <img src="62ab25930275b28fb895d8f320d865c3df1e55a67d138fe64b7c87304705bc63.png" title=" And the user select delete option (completed)" width="1920"/>
+                <img src="62ab25930275b28fb895d8f320d865c3df1e55a67d138fe64b7c87304705bc63.png" title=" And the user confirm" width="1920"/>
+                <img src="980e93bea46fda739d7c00205907ecbaf07dbf23fbea2b565480543ef040efd7.png" title=" And the user confirm (completed)" width="1920"/>
+                <img src="980e93bea46fda739d7c00205907ecbaf07dbf23fbea2b565480543ef040efd7.png" title=" Example: {total=8, name=image, mediaType=.jpg, textType=text, content=multiple images, action=add, numberOfMedia=1, updatedName=updatedImage, updatedMediaType=.jpg, confirmation=Yes} (completed)" width="1920"/>
+                <img src="282f677604d90b110625dd353ff348cf8c031c455db83cc30513eb13fdebf2be.png" title=" Example: {total=2, name=png, mediaType=.png, textType=text, content=png image, action=add, numberOfMedia=1, updatedName=updatedVideo, updatedMediaType=.mp4, confirmation=Yes}" width="1920"/>
+                <img src="282f677604d90b110625dd353ff348cf8c031c455db83cc30513eb13fdebf2be.png" title=" When the user create new media post &quot;2&quot; and &quot;png&quot; and &quot;.png&quot; and &quot;text&quot; and &quot;png image&quot;" width="1920"/>
+                <img src="282f677604d90b110625dd353ff348cf8c031c455db83cc30513eb13fdebf2be.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="282f677604d90b110625dd353ff348cf8c031c455db83cc30513eb13fdebf2be.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="282f677604d90b110625dd353ff348cf8c031c455db83cc30513eb13fdebf2be.png" title=" When the user view post detail" width="1920"/>
+                <img src="ee3d2b42bfdb31e4bb407d349319a3e31f24f2b1278a7430790b2161c051ca5b.png" title=" When the user view post detail (completed)" width="1920"/>
+                <img src="ee3d2b42bfdb31e4bb407d349319a3e31f24f2b1278a7430790b2161c051ca5b.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="ee3d2b42bfdb31e4bb407d349319a3e31f24f2b1278a7430790b2161c051ca5b.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="ee3d2b42bfdb31e4bb407d349319a3e31f24f2b1278a7430790b2161c051ca5b.png" title=" When the user go back to previous page" width="1920"/>
+                <img src="3015d222f2511854c92d5f398c0d3523f14c83f4fc687708893d5a8f5b4ba4d7.png" title=" When the user go back to previous page (completed)" width="1920"/>
+                <img src="3015d222f2511854c92d5f398c0d3523f14c83f4fc687708893d5a8f5b4ba4d7.png" title=" And the user select view more option of new post" width="1920"/>
+                <img src="c9c76a4da0bdb9b5cfdb20d95d36b1d3b1454623dadd37a00f20587b0cae3a39.png" title=" And the user select view more option of new post (completed)" width="1920"/>
+                <img src="c9c76a4da0bdb9b5cfdb20d95d36b1d3b1454623dadd37a00f20587b0cae3a39.png" title=" And the user select edit option" width="1920"/>
+                <img src="65e0772bfb63fd148f563bb4fc391157a52950343cf7dbf113ed3dd514092dea.png" title=" And the user select edit option (completed)" width="1920"/>
+                <img src="65e0772bfb63fd148f563bb4fc391157a52950343cf7dbf113ed3dd514092dea.png" title=" And the user update the media post &quot;add&quot; and &quot;1&quot; and &quot;updatedVideo&quot; and &quot;.mp4&quot;" width="1920"/>
+                <img src="47df4cb9f3183e9f3946749780db1b75e3afe4fce02ac00a8917bdf15896895f.png" title=" And the user update the media post &quot;add&quot; and &quot;1&quot; and &quot;updatedVideo&quot; and &quot;.mp4&quot; (completed)" width="1920"/>
+                <img src="47df4cb9f3183e9f3946749780db1b75e3afe4fce02ac00a8917bdf15896895f.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="47df4cb9f3183e9f3946749780db1b75e3afe4fce02ac00a8917bdf15896895f.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="47df4cb9f3183e9f3946749780db1b75e3afe4fce02ac00a8917bdf15896895f.png" title=" When the user select view more option of new post" width="1920"/>
+                <img src="55deb09d50474468cc3eee0fb13895fb36e65181daebd7b56d789a07b3633987.png" title=" When the user select view more option of new post (completed)" width="1920"/>
+                <img src="55deb09d50474468cc3eee0fb13895fb36e65181daebd7b56d789a07b3633987.png" title=" And the user select delete option" width="1920"/>
+                <img src="0556e4f9a8c1d4df42327df52663bd6a74f16dce1d9089d694a33557c458b4d0.png" title=" And the user select delete option (completed)" width="1920"/>
+                <img src="0556e4f9a8c1d4df42327df52663bd6a74f16dce1d9089d694a33557c458b4d0.png" title=" And the user confirm" width="1920"/>
+                <img src="ce4d050e504919988fe929fd22dd68eee66153200a89ae9f181307faaf6addd1.png" title=" And the user confirm (completed)" width="1920"/>
+                <img src="ce4d050e504919988fe929fd22dd68eee66153200a89ae9f181307faaf6addd1.png" title=" Example: {total=2, name=png, mediaType=.png, textType=text, content=png image, action=add, numberOfMedia=1, updatedName=updatedVideo, updatedMediaType=.mp4, confirmation=Yes} (completed)" width="1920"/>
+                <img src="b504a16b5ad451a9aaeccba643b9d7b8efbe95b81e788a74504c6e0c33da0efa.png" title=" Example: {total=1, name=video, mediaType=.mp4, textType=text, content=one video, action=add, numberOfMedia=2, updatedName=updatedImage, updatedMediaType=.jpg, confirmation=Yes}" width="1920"/>
+                <img src="b504a16b5ad451a9aaeccba643b9d7b8efbe95b81e788a74504c6e0c33da0efa.png" title=" When the user create new media post &quot;1&quot; and &quot;video&quot; and &quot;.mp4&quot; and &quot;text&quot; and &quot;one video&quot;" width="1920"/>
+                <img src="b504a16b5ad451a9aaeccba643b9d7b8efbe95b81e788a74504c6e0c33da0efa.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="3577e118cb8a100a5da3499203d9454020588afc80866c139856822ef4808cf5.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="3577e118cb8a100a5da3499203d9454020588afc80866c139856822ef4808cf5.png" title=" When the user view post detail" width="1920"/>
+                <img src="2c8cfed75f7d4055d74336a5d4217edcb2ac18b1b93a194541bcf1acccbdf0a9.png" title=" When the user view post detail (completed)" width="1920"/>
+                <img src="2c8cfed75f7d4055d74336a5d4217edcb2ac18b1b93a194541bcf1acccbdf0a9.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="2c8cfed75f7d4055d74336a5d4217edcb2ac18b1b93a194541bcf1acccbdf0a9.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="2c8cfed75f7d4055d74336a5d4217edcb2ac18b1b93a194541bcf1acccbdf0a9.png" title=" When the user go back to previous page" width="1920"/>
+                <img src="3015d222f2511854c92d5f398c0d3523f14c83f4fc687708893d5a8f5b4ba4d7.png" title=" When the user go back to previous page (completed)" width="1920"/>
+                <img src="3015d222f2511854c92d5f398c0d3523f14c83f4fc687708893d5a8f5b4ba4d7.png" title=" And the user select view more option of new post" width="1920"/>
+                <img src="4368b4680a0352fb62a0609d6b04c829dd6ffaad3bd8de16c3afce609f6132bc.png" title=" And the user select view more option of new post (completed)" width="1920"/>
+                <img src="4368b4680a0352fb62a0609d6b04c829dd6ffaad3bd8de16c3afce609f6132bc.png" title=" And the user select edit option" width="1920"/>
+                <img src="3711d6a737dd615ffb18d31e3c874a5e24497ff74715778c4c33db40f2c3e425.png" title=" And the user select edit option (completed)" width="1920"/>
+                <img src="3711d6a737dd615ffb18d31e3c874a5e24497ff74715778c4c33db40f2c3e425.png" title=" And the user update the media post &quot;add&quot; and &quot;2&quot; and &quot;updatedImage&quot; and &quot;.jpg&quot;" width="1920"/>
+                <img src="485c99763d87a55b1e4ecc68a7442ca31a9e586d16ca713c85b51ad7f328c73b.png" title=" And the user update the media post &quot;add&quot; and &quot;2&quot; and &quot;updatedImage&quot; and &quot;.jpg&quot; (completed)" width="1920"/>
+                <img src="485c99763d87a55b1e4ecc68a7442ca31a9e586d16ca713c85b51ad7f328c73b.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="485c99763d87a55b1e4ecc68a7442ca31a9e586d16ca713c85b51ad7f328c73b.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="485c99763d87a55b1e4ecc68a7442ca31a9e586d16ca713c85b51ad7f328c73b.png" title=" When the user select view more option of new post" width="1920"/>
+                <img src="d2fa6a8ba43f05e35c6695749bd2bbcea93fa2d6c6b416354e9776da0da3e18b.png" title=" When the user select view more option of new post (completed)" width="1920"/>
+                <img src="d2fa6a8ba43f05e35c6695749bd2bbcea93fa2d6c6b416354e9776da0da3e18b.png" title=" And the user select delete option" width="1920"/>
+                <img src="ca154ff4fb01b64177a829593bd71fae820e4614075fe13f083af33e4d25fc4e.png" title=" And the user select delete option (completed)" width="1920"/>
+                <img src="ca154ff4fb01b64177a829593bd71fae820e4614075fe13f083af33e4d25fc4e.png" title=" And the user confirm" width="1920"/>
+                <img src="1475e45b36f975e1bbb5d851a75e01d3041cf97d5c3eff2129311c9f58aaf4ce.png" title=" And the user confirm (completed)" width="1920"/>
+                <img src="1475e45b36f975e1bbb5d851a75e01d3041cf97d5c3eff2129311c9f58aaf4ce.png" title=" Example: {total=1, name=video, mediaType=.mp4, textType=text, content=one video, action=add, numberOfMedia=2, updatedName=updatedImage, updatedMediaType=.jpg, confirmation=Yes} (completed)" width="1920"/>
+                <img src="e2a1abb5a042c4384454eeae359d3f0b3d7e46658f507431d73696ad2f974c26.png" title=" Example: {total=2, name=video, mediaType=.mp4, textType=text, content=multiple videos, action=remove, numberOfMedia=all, updatedName=, updatedMediaType=, confirmation=Yes}" width="1920"/>
+                <img src="e2a1abb5a042c4384454eeae359d3f0b3d7e46658f507431d73696ad2f974c26.png" title=" When the user create new media post &quot;2&quot; and &quot;video&quot; and &quot;.mp4&quot; and &quot;text&quot; and &quot;multiple videos&quot;" width="1920"/>
+                <img src="e2a1abb5a042c4384454eeae359d3f0b3d7e46658f507431d73696ad2f974c26.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="e2a1abb5a042c4384454eeae359d3f0b3d7e46658f507431d73696ad2f974c26.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="e2a1abb5a042c4384454eeae359d3f0b3d7e46658f507431d73696ad2f974c26.png" title=" When the user view post detail" width="1920"/>
+                <img src="2c253cb5a2c0f248ff16dc9661b81c48a8f2de000f1a67005fd5c303a965fc48.png" title=" When the user view post detail (completed)" width="1920"/>
+                <img src="2c253cb5a2c0f248ff16dc9661b81c48a8f2de000f1a67005fd5c303a965fc48.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="2c253cb5a2c0f248ff16dc9661b81c48a8f2de000f1a67005fd5c303a965fc48.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="2c253cb5a2c0f248ff16dc9661b81c48a8f2de000f1a67005fd5c303a965fc48.png" title=" When the user go back to previous page" width="1920"/>
+                <img src="3015d222f2511854c92d5f398c0d3523f14c83f4fc687708893d5a8f5b4ba4d7.png" title=" When the user go back to previous page (completed)" width="1920"/>
+                <img src="3015d222f2511854c92d5f398c0d3523f14c83f4fc687708893d5a8f5b4ba4d7.png" title=" And the user select view more option of new post" width="1920"/>
+                <img src="c7007f1ea8a611f0fc83144d6f17b5f8cd0135f842d17118ed238428597768c0.png" title=" And the user select view more option of new post (completed)" width="1920"/>
+                <img src="c7007f1ea8a611f0fc83144d6f17b5f8cd0135f842d17118ed238428597768c0.png" title=" And the user select edit option" width="1920"/>
+                <img src="748eab05b5ee1146c84bae1188114b8e1b6c41c1411991fce0241f60a16a7bbd.png" title=" And the user select edit option (completed)" width="1920"/>
+                <img src="748eab05b5ee1146c84bae1188114b8e1b6c41c1411991fce0241f60a16a7bbd.png" title=" And the user update the media post &quot;remove&quot; and &quot;all&quot; and &quot;&quot; and &quot;&quot;" width="1920"/>
+                <img src="97be3991f2d31a8375a3f9aae1d496f79b67f831981e2247af1cdb211e15055d.png" title=" And the user update the media post &quot;remove&quot; and &quot;all&quot; and &quot;&quot; and &quot;&quot; (completed)" width="1920"/>
+                <img src="97be3991f2d31a8375a3f9aae1d496f79b67f831981e2247af1cdb211e15055d.png" title=" Then the user see the correct media number on the post" width="1920"/>
+                <img src="97be3991f2d31a8375a3f9aae1d496f79b67f831981e2247af1cdb211e15055d.png" title=" Then the user see the correct media number on the post (completed)" width="1920"/>
+                <img src="97be3991f2d31a8375a3f9aae1d496f79b67f831981e2247af1cdb211e15055d.png" title=" When the user select view more option of new post" width="1920"/>
+                <img src="0935f380cf556ae9402fedf7207eefe2439d0123afd31ee23aeeec277abe31b0.png" title=" When the user select view more option of new post (completed)" width="1920"/>
+                <img src="0935f380cf556ae9402fedf7207eefe2439d0123afd31ee23aeeec277abe31b0.png" title=" And the user select delete option" width="1920"/>
+                <img src="72de6a99e687f6bda75626db707b742fd12e2c2b0e43b32badff00434fbaabff.png" title=" And the user select delete option (completed)" width="1920"/>
+                <img src="72de6a99e687f6bda75626db707b742fd12e2c2b0e43b32badff00434fbaabff.png" title=" And the user confirm" width="1920"/>
+                <img src="96200bf8ac8c7955ac62aa8f4be661e4e83f8e6eb228652deba4351dff781faf.png" title=" And the user confirm (completed)" width="1920"/>
+                <img src="96200bf8ac8c7955ac62aa8f4be661e4e83f8e6eb228652deba4351dff781faf.png" title=" Example: {total=2, name=video, mediaType=.mp4, textType=text, content=multiple videos, action=remove, numberOfMedia=all, updatedName=, updatedMediaType=, confirmation=Yes} (completed): <span class='success-color'>SUCCESS</span>" width="1920"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 2.2.0</span>
+</div>
+</body>
+</html>

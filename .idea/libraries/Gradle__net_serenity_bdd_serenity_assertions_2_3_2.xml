@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: net.serenity-bdd:serenity-assertions:2.3.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.serenity-bdd/serenity-assertions/2.3.2/6aa2fa1573c9a571d9298dc1a28c16a0c5ac41d3/serenity-assertions-2.3.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.serenity-bdd/serenity-assertions/2.3.2/2467463d5dbf3d0355bd88c0516811fa82d34f51/serenity-assertions-2.3.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

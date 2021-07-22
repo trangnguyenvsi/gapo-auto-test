@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Features</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var scenarioTable = $('.scenario-result-table').DataTable({
+
+                "order": [],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                    {
+                        searching: false,
+                        ordering: false,
+                        paging: false,
+                        info: false
+                    }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"Post on timeline","type":"feature","href":"26541c70799e78fc4d6bbb2aae4d08a4a6f580d52f04f741324950e854d1162c.html","nodes":[],"selectable":false,"tags":["",""]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                showTags: true,
+                expandIcon: "glyphicon glyphicon-folder-close",
+                collapseIcon: "glyphicon glyphicon-folder-open",
+                emptyIcon: "glyphicon glyphicon-book"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs > div > p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
+            });
+        });
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Demo Project using Serenity and Cucumber</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+
+
+                > <span class="truncate-40">Post On Timeline</span>
+
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated </span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="table">
+                <div class=row">
+                    <div class="col-sm-12">
+                        <div>
+                            <div clas="table">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                    <span>
+                                            <h2><i class="fa fa-book"></i> Feature:  Post On Timeline</h2>
+                                        </span>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="requirementNarrativeTitle">
+                                
+                            </div>
+
+                        </div>
+                    </div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <!-- Requirements result tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#specs"><i class="fas fa-comments"></i> Specifications</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#results"><i class="fas fa-tachometer-alt"></i> Test Results</a>
+                        </li>
+                    </ul>
+
+                    <!-- Specifications and Results tabs -->
+                    <div class="card border">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div id="specs" class="tab-pane fade in active">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+
+
+                                            <h3>Scenarios</h3>
+
+                                            <div id="toc">
+                                                <table class="table" id="toc-table">
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#91be0d167641d4968ff552a2731562de29f85ea39779a9a7e01c9c16d2bbf51a" title="View scenario details" >Post text</a>
+                                                                     (3 examples)
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#063f47ebb51dada679990599519477062b3f5be6cb82da3cabbd4c5e786166b8" title="View scenario details" >Post with media on group</a>
+                                                                     (5 examples)
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#3714e3f55f849b346d865f1c5bd122ee33fe35a04138367257d1d61628896597" title="View scenario details" >Post with background</a>
+                                                                     (1 example)
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#ca89ba9a22b32f015d4b3e01958503cd03e3c71714c196a6001d3995981987b4" title="View scenario details" >Post by mention user</a>
+                                                                     (1 example)
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#dff3456ca4e3d458081ccedf1b0aa2acafd12c271686fdc4f94c7e3eae115ae9" title="View scenario details" >Check privacy</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#77ea5d8210d2a3c4b53858259b638086a340be3ee56390cc357104dc77bdb64f" title="View scenario details" >Check post question</a>
+                                                                     (1 example)
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#2237586a9b2927c48aa8d0dc4244f278c5f35178007b7f2c2855b59a8784dd9b" title="View scenario details" >Edit privacy of post</a>
+                                                                     (3 examples)
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#ab717c508ec5fd6d898b759cb37c8157387fdbaad83bf7b47adf4fce0a7298c6" title="View scenario details" >Create post by tag user</a>
+                                                                     (2 examples)
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#a09974075a3e99e806c37fee5dbefee057fecdd3e87cc4246839334a9da3ccf2" title="View scenario details" >Del post on homepage</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                </table>
+
+                                            </div>
+
+                                            <h3>Scenario details</h3>
+
+                                                <div class="scenario-docs card" id="91be0d167641d4968ff552a2731562de29f85ea39779a9a7e01c9c16d2bbf51a">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">post text</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>When the user create new text post &quot;{type}&quot; and &quot;{content}&quot;</p>
+                                                            <p>Then the post content is correct</p>
+                                                            <p>When the user view post detail</p>
+                                                            <p>Then the post content is correct</p>
+                                                            <p>When the user go back to previous page</p>
+                                                            <p>And the user select view more option of new post</p>
+                                                            <p>And the user select edit option</p>
+                                                            <p>And the user input new content to update post &quot;{updatedType}&quot; and &quot;{updatedContent}&quot;</p>
+                                                            <p>Then the user see the updated content correctly</p>
+                                                            <p>When the user select view more option of new post</p>
+                                                            <p>And the user select delete option</p>
+                                                            <p>And the user confirm</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples: src</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>type</th><th>content</th><th>updatedType</th><th>updatedContent</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>text</td><td>bai post text auto</td><td>link</td><td>https://johnfergusonsmart.com/running-serenity-bdd-tests-with-tags/</td><td> </td></tr>
+<tr><td>hashtag</td><td>#autotest</td><td>text</td><td>updated text</td><td> </td></tr>
+<tr><td>link</td><td>https://www.youtube.com/watch?v=-yhqOX3bLvQ</td><td>hashtag</td><td>#updatedautotest</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="scenario-docs card" id="063f47ebb51dada679990599519477062b3f5be6cb82da3cabbd4c5e786166b8">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">post with media on group</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>When the user create new media post &quot;{total}&quot; and &quot;{name}&quot; and &quot;{mediaType}&quot; and &quot;{textType}&quot; and &quot;{content}&quot;</p>
+                                                            <p>Then the user see the correct media number on the post</p>
+                                                            <p>When the user view post detail</p>
+                                                            <p>Then the user see the correct media number on the post</p>
+                                                            <p>When the user go back to previous page</p>
+                                                            <p>And the user select view more option of new post</p>
+                                                            <p>And the user select edit option</p>
+                                                            <p>And the user update the media post &quot;{action}&quot; and &quot;{numberOfMedia}&quot; and &quot;{updatedName}&quot; and &quot;{updatedMediaType}&quot;</p>
+                                                            <p>Then the user see the correct media number on the post</p>
+                                                            <p>When the user select view more option of new post</p>
+                                                            <p>And the user select delete option</p>
+                                                            <p>And the user confirm</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples: src</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>total</th><th>name</th><th>mediaType</th><th>textType</th><th>content</th><th>action</th><th>numberOfMedia</th><th>updatedName</th><th>updatedMediaType</th><th>confirmation</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>image</td><td>.jpg</td><td>text</td><td>one images</td><td>remove</td><td>all</td><td></td><td></td><td>Yes</td><td> </td></tr>
+<tr><td>8</td><td>image</td><td>.jpg</td><td>text</td><td>multiple images</td><td>add</td><td>1</td><td>updatedImage</td><td>.jpg</td><td>Yes</td><td> </td></tr>
+<tr><td>2</td><td>png</td><td>.png</td><td>text</td><td>png image</td><td>add</td><td>1</td><td>updatedVideo</td><td>.mp4</td><td>Yes</td><td> </td></tr>
+<tr><td>1</td><td>video</td><td>.mp4</td><td>text</td><td>one video</td><td>add</td><td>2</td><td>updatedImage</td><td>.jpg</td><td>Yes</td><td> </td></tr>
+<tr><td>2</td><td>video</td><td>.mp4</td><td>text</td><td>multiple videos</td><td>remove</td><td>all</td><td></td><td></td><td>Yes</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="scenario-docs card" id="3714e3f55f849b346d865f1c5bd122ee33fe35a04138367257d1d61628896597">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">post with background</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>When the user create new post with background &quot;{textType}&quot; and &quot;{content}&quot; and &quot;{background}&quot;</p>
+                                                            <p>Then the user see correct background on post</p>
+                                                            <p>When the user view post detail</p>
+                                                            <p>Then the user see correct background on post</p>
+                                                            <p>When the user go back to previous page</p>
+                                                            <p>And the user select view more option of new post</p>
+                                                            <p>And the user select edit option</p>
+                                                            <p>And the user update background and share post &quot;{updateBackground}&quot;</p>
+                                                            <p>Then the user see correct background on post</p>
+                                                            <p>When the user select view more option of new post</p>
+                                                            <p>And the user select edit option</p>
+                                                            <p>And the user remove background</p>
+                                                            <p>Then the user see that the post has no background</p>
+                                                            <p>When the user select view more option of new post</p>
+                                                            <p>And the user select delete option</p>
+                                                            <p>And the user confirm</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples: src</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>textType</th><th>content</th><th>background</th><th>updateBackground</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>text</td><td>Gapo auto test background</td><td>covid</td><td>orange</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="scenario-docs card" id="ca89ba9a22b32f015d4b3e01958503cd03e3c71714c196a6001d3995981987b4">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">post by mention user</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>When the user create new post and mention another user &quot;{textType}&quot; and &quot;{mentionedName}&quot;</p>
+                                                            <p>When the user view post detail</p>
+                                                            <p>And the user click mention</p>
+                                                            <p>Then the user see profile name correctly</p>
+                                                            <p>When the user go back to previous page</p>
+                                                            <p>And the user select view more option of new post</p>
+                                                            <p>And the user select edit option</p>
+                                                            <p>And the user add more mention name &quot;{textType}&quot; and &quot;{updatedMentionedName}&quot;</p>
+                                                            <p>When the user view post detail</p>
+                                                            <p>And the user click mention</p>
+                                                            <p>Then the user see profile name correctly</p>
+                                                            <p>When the user go back to previous page</p>
+                                                            <p>And the user select delete option</p>
+                                                            <p>And the user confirm</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples: src</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>textType</th><th>mentionedName</th><th>updatedMentionedName</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>mention</td><td>@Trang.nguyen</td><td>@Nam</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="scenario-docs card" id="dff3456ca4e3d458081ccedf1b0aa2acafd12c271686fdc4f94c7e3eae115ae9">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">Check privacy</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When the first user create post with privacy</p>
+<table>
+<thead>
+<tr><th>privacy</th><th>content</th></tr>
+</thead>
+<tbody>
+<tr><td>only_me</td><td>Chỉ mình tôi</td></tr>
+<tr><td>in_company</td><td>Cùng công ty</td></tr>
+<tr><td>friends</td><td>Bạn bè</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When the friend login</p>
+<table>
+<thead>
+<tr><th>email</th><th>pass</th></tr>
+</thead>
+<tbody>
+<tr><td>testdemopro01@appzily.com</td><td>12345678a</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>And search the first user and view post list</p>
+<table>
+<thead>
+<tr><th>searchText</th><th>name</th></tr>
+</thead>
+<tbody>
+<tr><td>Trang Mailinator 21</td><td>Trang Mailinator 21</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then the friend can view the post with correct privacy</p>
+<table>
+<thead>
+<tr><th>postContent</th><th>view</th></tr>
+</thead>
+<tbody>
+<tr><td>Chỉ mình tôi</td><td>No</td></tr>
+<tr><td>Cùng công ty</td><td>No</td></tr>
+<tr><td>Bạn bè</td><td>Yes</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When the colleague login</p>
+<table>
+<thead>
+<tr><th>email</th><th>pass</th></tr>
+</thead>
+<tbody>
+<tr><td>trangnguyenpro05@mailinator.com</td><td>12345678a</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>And search the first user and view post list</p>
+<table>
+<thead>
+<tr><th>searchText</th><th>name</th></tr>
+</thead>
+<tbody>
+<tr><td>Trang Mailinator 21</td><td>Trang Mailinator 21</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then the colleague can view the post with correct privacy</p>
+<table>
+<thead>
+<tr><th>postContent</th><th>view</th></tr>
+</thead>
+<tbody>
+<tr><td>Chỉ mình tôi</td><td>No</td></tr>
+<tr><td>Cùng công ty</td><td>Yes</td></tr>
+<tr><td>Bạn bè</td><td>No</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When the first user login again</p>
+<table>
+<thead>
+<tr><th>email</th><th>pass</th></tr>
+</thead>
+<tbody>
+<tr><td>trangnguyenpro21@mailinator.com</td><td>12345678a</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>And the user go to timeline page</p>
+                                                            <p><p>And the user delete all new posts</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>3</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="scenario-docs card" id="77ea5d8210d2a3c4b53858259b638086a340be3ee56390cc357104dc77bdb64f">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">Check post question</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>When the user create the question post &quot;{textType}&quot; and &quot;{content}&quot;</p>
+                                                            <p>Then the user see the correct question post</p>
+                                                            <p>When the user view post detail</p>
+                                                            <p>Then the user see the correct question post</p>
+                                                            <p>When the user go back to previous page</p>
+                                                            <p>And the user select view more option of new post</p>
+                                                            <p>And the user select edit option</p>
+                                                            <p>And the user input new content to update question post &quot;{updatedType}&quot; and &quot;{updatedContent}&quot;</p>
+                                                            <p>Then the user see the correct question post</p>
+                                                            <p>And the user select view more option of new post</p>
+                                                            <p>And the user select delete option</p>
+                                                            <p>And the user confirm</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples: src</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>textType</th><th>content</th><th>updatedType</th><th>updatedContent</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>text</td><td>Hỏi tôi nào</td><td>text</td><td>Hỏi tôi nào !!!!</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="scenario-docs card" id="2237586a9b2927c48aa8d0dc4244f278c5f35178007b7f2c2855b59a8784dd9b">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">Edit privacy of post</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>When the user select view more option of new post</p>
+                                                            <p>And the user select edit option</p>
+                                                            <p>And the user update privacy &quot;{privacy}&quot;</p>
+                                                            <p>Then the privacy is update correctly</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples: src</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>privacy</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>only_me</td><td> </td></tr>
+<tr><td>in_company</td><td> </td></tr>
+<tr><td>friends</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="scenario-docs card" id="ab717c508ec5fd6d898b759cb37c8157387fdbaad83bf7b47adf4fce0a7298c6">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">Create post by tag user</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>When the user click create post</p>
+                                                            <p>And the user input text &quot;{postType}&quot; and &quot;{content}&quot; and choose privacy &quot;{privacy}&quot;</p>
+                                                            <p>And the user click tag icon</p>
+                                                            <p>And the user search name and select search results &quot;{tagList}&quot;</p>
+                                                            <p>And the user click done</p>
+                                                            <p>And the user click share post</p>
+                                                            <p>Then the user see correct tag list</p>
+                                                            <p>When the user click to tag list</p>
+                                                            <p>Then the tag list is correct</p>
+                                                            <p>When the user view post detail</p>
+                                                            <p>Then the user see correct tag list</p>
+                                                            <p>When the user click to tag list</p>
+                                                            <p>Then the tag list is correct</p>
+                                                            <p>When the user close tag list detail popup</p>
+                                                            <p>And the friend login &quot;{friendEmail}&quot; and &quot;{password}&quot;</p>
+                                                            <p>And select notification tab</p>
+                                                            <p>Then see content of tag notification &quot;{friendNoti}&quot;</p>
+                                                            <p>And see content of post notification &quot;{friendNoti}&quot;</p>
+                                                            <p>When the colleague login &quot;{colleagueEmail}&quot; and &quot;{password}&quot;</p>
+                                                            <p>And select notification tab</p>
+                                                            <p>Then see content of tag notification &quot;{colleagueNoti}&quot;</p>
+                                                            <p>When the first user login again &quot;{userPost}&quot; and &quot;{password}&quot;</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples: src</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>postType</th><th>privacy</th><th>content</th><th>tagList</th><th>userPost</th><th>friendEmail</th><th>friendNoti</th><th>colleagueEmail</th><th>password</th><th>colleagueNoti</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>text</td><td>in_company</td><td>tag</td><td>Thu Hà,Test Auto Demo,Trang Mailinator 5</td><td>trangnguyenpro21@mailinator.com</td><td>testdemopro01@appzily.com</td><td>no</td><td>trangnguyenpro05@mailinator.com</td><td>12345678a</td><td>yes</td><td> </td></tr>
+<tr><td>text</td><td>friends</td><td>tag</td><td>Thu Hà,Test Auto Demo,Trang Mailinator 5</td><td>trangnguyenpro21@mailinator.com</td><td>testdemopro01@appzily.com</td><td>yes</td><td>trangnguyenpro05@mailinator.com</td><td>12345678a</td><td>no</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="scenario-docs card" id="a09974075a3e99e806c37fee5dbefee057fecdd3e87cc4246839334a9da3ccf2">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">Del post on homepage</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>When the user decide to delete all post</p>
+                                                        <div class="examples">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="results" class="tab-pane fade">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Scenario Results (including rows of test data)</th>
+                                                <th scope="col" colspan="2" class="automated-stats">
+                                                    Automated
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                                    <td class="aggregate-result-count"><i
+                                                                            class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
+                                                                    </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                    <td class="aggregate-result-count"><i
+                                                                            class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending
+                                                                    </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                            <td colspan="3"><i
+                                                                                class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
+                                                                            </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr class="summary-stats">
+                                                <td class="aggregate-result-count">Total</td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Execution Time</th>
+                                                        <th>Clock Time</th>
+                                                        <th>Fastest Test</th>
+                                                        <th>Slowest Test</th>
+                                                        <th>Average Execution Time</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>0ms</td>
+                                                        <td>0ms</td>
+                                                        <td>0ms</td>
+                                                        <td>0ms</td>
+                                                        <td>0ms</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
+
+                                            <table class="scenario-result-table table" id="scenario-results">
+                                                <thead>
+                                                <tr>
+                                                    <th class="test-name-column">Scenario</th>
+                                                    <th>Steps</th>
+                                                    <th>Start Time</th>
+                                                    <th>Duration</th>
+                                                    <th>Result</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            post text
+                                                               (3 examples)
+                                                    </td>
+                                                    <td>12</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            post with media on group
+                                                               (5 examples)
+                                                    </td>
+                                                    <td>12</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            post with background
+                                                               (1 example)
+                                                    </td>
+                                                    <td>16</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            post by mention user
+                                                               (1 example)
+                                                    </td>
+                                                    <td>14</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            Check privacy
+                                                    </td>
+                                                    <td>10</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            Check post question
+                                                               (1 example)
+                                                    </td>
+                                                    <td>12</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            Edit privacy of post
+                                                               (3 examples)
+                                                    </td>
+                                                    <td>4</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            Create post by tag user
+                                                               (2 examples)
+                                                    </td>
+                                                    <td>22</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            Del post on homepage
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+
+                                                No manual tests were recorded
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="version">Serenity BDD version 2.2.0</span>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

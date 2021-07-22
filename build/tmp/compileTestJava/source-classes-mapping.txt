@@ -1,0 +1,75 @@
+gapo/pilot/auto2/acceptancetests/AcceptanceTestSuite.java
+ gapo.pilot.auto2.acceptancetests.AcceptanceTestSuite
+gapo/pilot/auto2/pages/search/SearchElement.java
+ gapo.pilot.auto2.pages.search.SearchElement
+gapo/pilot/auto2/openurl/GapoHomePageURL.java
+ gapo.pilot.auto2.openurl.GapoHomePageURL
+gapo/pilot/auto2/pages/postlist/PostListElement.java
+ gapo.pilot.auto2.pages.postlist.PostListElement
+gapo/pilot/auto2/openurl/GapoHomePageURLAction.java
+ gapo.pilot.auto2.openurl.GapoHomePageURLAction
+gapo/pilot/auto2/pages/Comment.java
+ gapo.pilot.auto2.pages.Comment
+gapo/pilot/auto2/pages/LoginAction.java
+ gapo.pilot.auto2.pages.LoginAction
+gapo/pilot/auto2/pages/postlist/PostListVerify.java
+ gapo.pilot.auto2.pages.postlist.PostListVerify
+gapo/pilot/auto2/pages/usertimeline/UserTimelineElement.java
+ gapo.pilot.auto2.pages.usertimeline.UserTimelineElement
+gapo/pilot/auto2/preconditions/LoginHomePage.java
+ gapo.pilot.auto2.preconditions.LoginHomePage
+gapo/pilot/auto2/pages/PagePage.java
+ gapo.pilot.auto2.pages.PagePage
+gapo/pilot/auto2/helper/UploadMedia.java
+ gapo.pilot.auto2.helper.UploadMedia
+gapo/pilot/auto2/helper/WebNavigationHelper.java
+ gapo.pilot.auto2.helper.WebNavigationHelper
+gapo/pilot/auto2/pages/createnewpost/CreatePostVerify.java
+ gapo.pilot.auto2.pages.createnewpost.CreatePostVerify
+gapo/pilot/auto2/pages/Navigation.java
+ gapo.pilot.auto2.pages.Navigation
+gapo/pilot/auto2/pages/React.java
+ gapo.pilot.auto2.pages.React
+gapo/pilot/auto2/pages/Group.java
+ gapo.pilot.auto2.pages.Group
+gapo/pilot/auto2/pages/usertimeline/UserTimelineAction.java
+ gapo.pilot.auto2.pages.usertimeline.UserTimelineAction
+gapo/pilot/auto2/constant/PostPrivacyConst.java
+ gapo.pilot.auto2.constant.PostPrivacyConst
+ gapo.pilot.auto2.constant.PostPrivacyConst$PersonalPostPrivacy
+gapo/pilot/auto2/openurl/UserProfileUrlAction.java
+ gapo.pilot.auto2.openurl.UserProfileUrlAction
+gapo/pilot/auto2/steps/CommonAssertPost.java
+ gapo.pilot.auto2.steps.CommonAssertPost
+gapo/pilot/auto2/pages/navigation/NavigationElement.java
+ gapo.pilot.auto2.pages.navigation.NavigationElement
+gapo/pilot/auto2/pages/usertimeline/UserTimelineVerify.java
+ gapo.pilot.auto2.pages.usertimeline.UserTimelineVerify
+gapo/pilot/auto2/pages/search/SearchAction.java
+ gapo.pilot.auto2.pages.search.SearchAction
+gapo/pilot/auto2/preconditions/Login.java
+ gapo.pilot.auto2.preconditions.Login
+gapo/pilot/auto2/pages/LoginPage.java
+ gapo.pilot.auto2.pages.LoginPage
+gapo/pilot/auto2/steps/CommonPostTest.java
+ gapo.pilot.auto2.steps.CommonPostTest
+gapo/pilot/auto2/pages/postlist/PostListAction.java
+ gapo.pilot.auto2.pages.postlist.PostListAction
+gapo/pilot/auto2/helper/StringHelper.java
+ gapo.pilot.auto2.helper.StringHelper
+gapo/pilot/auto2/openurl/UserProfileUrl.java
+ gapo.pilot.auto2.openurl.UserProfileUrl
+gapo/pilot/auto2/pages/GroupAtion.java
+ gapo.pilot.auto2.pages.GroupAtion
+gapo/pilot/auto2/pages/navigation/NavigationAction.java
+ gapo.pilot.auto2.pages.navigation.NavigationAction
+gapo/pilot/auto2/helper/KeyboardHelper.java
+ gapo.pilot.auto2.helper.KeyboardHelper
+gapo/pilot/auto2/helper/ElementHelper.java
+ gapo.pilot.auto2.helper.ElementHelper
+gapo/pilot/auto2/pages/createnewpost/CreatePostAction.java
+ gapo.pilot.auto2.pages.createnewpost.CreatePostAction
+gapo/pilot/auto2/helper/InteractionHelper.java
+ gapo.pilot.auto2.helper.InteractionHelper
+gapo/pilot/auto2/pages/createnewpost/CreatePostElement.java
+ gapo.pilot.auto2.pages.createnewpost.CreatePostElement
