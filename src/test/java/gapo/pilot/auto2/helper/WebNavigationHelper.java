@@ -12,4 +12,8 @@ public class WebNavigationHelper extends UIInteractionSteps {
     public void refresh(){
         getDriver().navigate().refresh();
     }
+
+    public String getCurrentUrl(){
+        return getDriver().getCurrentUrl();
+    }
 }

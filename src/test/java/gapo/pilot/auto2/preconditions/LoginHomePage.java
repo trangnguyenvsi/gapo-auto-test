@@ -36,13 +36,9 @@ public class LoginHomePage extends UIInteractionSteps {
     }
 
     @After("@posttagtimeline")
-    public void afterPostTagOnTimeline(){
+    public void afterPostTagOnTimeline() {
         navigationAct.goToTimeline();
     }
-//
-//    @After("@posttaghomepage")
-//    public void afterPostTagOnHomePage(){
-//        navigationAct.goToHomePgae();
-//    }
+
 
 }

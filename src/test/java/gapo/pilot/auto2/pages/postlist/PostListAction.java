@@ -31,6 +31,39 @@ public class PostListAction extends UIInteractionSteps {
         return this;
     }
 
+    @Step("select copy post content")
+    public PostListAction selectCopyContentOfPost() {
+        withAction().moveToElement($(PostListElement.COPY_POST_CONTENT_OPTION)).click().build().perform();
+        return this;
+    }
+
+    @Step("select copy post link")
+    public PostListAction selectCopyLinkOfPost() {
+        withAction().moveToElement($(PostListElement.COPY_POST_LINK_OPTION)).click().build().perform();
+        return this;
+    }
+
+    @Step("click share icon")
+    public PostListAction clickShareIcon() {
+        $(PostListElement.SHARE_POST_ICON).click();
+        return this;
+    }
+
+    @Step("click share icon by post content")
+    public PostListAction clickShareIconByPostContent(String selectedPost) {
+        $(PostListElement.getButtonShareByPostContent(selectedPost)).click();
+        return this;
+    }
+
+    @Step("view post detail by post content")
+    public PostListAction viewPostDetailByPostContent(String selectedPost) {
+        if ($(PostListElement.getDateOfPost(selectedPost)).isPresent()) {
+            $(PostListElement.getDateOfPost(selectedPost)).click();
+        }
+        return this;
+    }
+
+
     //*******************************************************************************
     //get media number of new post
     @Step("get number of media in one post")
@@ -63,7 +96,7 @@ public class PostListAction extends UIInteractionSteps {
     @Step("click to other author")
     public PostListAction clickToOtherAuthor() {
 //        interactionHelper.waitAndClick(PostListElement.OTHER_AUTHOR_POST);
-        interactionHelper.clickByJs($(PostListElement.OTHER_AUTHOR_POST),getDriver());
+        interactionHelper.clickByJs($(PostListElement.OTHER_AUTHOR_POST), getDriver());
         return this;
     }
 
@@ -102,7 +135,7 @@ public class PostListAction extends UIInteractionSteps {
     }
 
     @Step("View post content by privacy")
-    public boolean viewPostContentByPrivacy(String content) {
+    public boolean viewPostStatus(String content) {
         List<String> contentList = getListOfPostContent();
         System.out.println("List content:" + contentList);
         return contentList.contains(content);
@@ -196,4 +229,8 @@ public class PostListAction extends UIInteractionSteps {
         }
         return this;
     }
+
+
+    //*******************************************************************************
+
 }

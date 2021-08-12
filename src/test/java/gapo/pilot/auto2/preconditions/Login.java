@@ -1,7 +1,7 @@
 package gapo.pilot.auto2.preconditions;
 
 import gapo.pilot.auto2.openurl.GapoHomePageURLAction;
-import gapo.pilot.auto2.pages.LoginAction;
+import gapo.pilot.auto2.pages.login.LoginAction;
 import gapo.pilot.auto2.pages.navigation.NavigationAction;
 import net.serenitybdd.core.steps.UIInteractionSteps;
 import net.thucydides.core.annotations.Steps;

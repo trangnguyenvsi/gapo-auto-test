@@ -1,6 +1,6 @@
 //package gapo.pilot.auto2.steps;
 //
-//import gapo.pilot.auto2.pages.GroupAtion;
+//import gapo.pilot.auto2.pages.group.GroupAtion;
 //import io.cucumber.java.en.Given;
 //import io.cucumber.java.en.When;
 //import net.serenitybdd.core.steps.UIInteractionSteps;

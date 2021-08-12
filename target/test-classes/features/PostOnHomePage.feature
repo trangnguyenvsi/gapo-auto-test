@@ -208,3 +208,82 @@ Feature: Post on home page
       | text     | in_company | tag     | Thu Hà,Test Auto Demo,Trang Mailinator 5 | trangnguyenpro21@mailinator.com | testdemopro01@appzily.com | no         | trangnguyenpro05@mailinator.com | 12345678a | yes           |
       | text     | friends    | tag     | Thu Hà,Test Auto Demo,Trang Mailinator 5 | trangnguyenpro21@mailinator.com | testdemopro01@appzily.com | yes        | trangnguyenpro05@mailinator.com | 12345678a | no            |
 
+  @postbycopycontent
+  Scenario Outline: Copy post's link and create new post
+    When the user get content of the new post "<postType>"
+    And the user select view more option of new post
+    And the user select copy post content
+    And the user click create post
+    And paste the coppied content
+    And the user click share post
+    Then the post content is correct
+    When the user select view more option of new post
+    And the user select delete option
+    And the user confirm
+
+    Examples: src
+      | postType |
+      | text     |
+
+  @postbycopylink
+  Scenario Outline: Copy post's link and create new post
+    When the user view post detail
+    And the user get the current post link "<postType>"
+    And the user go back to previous page
+    And the user select view more option of new post
+    And the user select copy post link
+    And the user click create post
+    And paste the coppied content
+    And the user click share post
+    Then the post content is correct
+    When the user select view more option of new post
+    And the user select delete option
+    And the user confirm
+
+    Examples: src
+      | postType |
+      | text     |
+
+##  @sharepost
+#  Scenario Outline: O: check share post with different privacy
+#    When the user A in workspace1 create new post with privacy "<privacy>" and "<content>"
+#    And the user B - the friend in workspace1 login "<emailB>" and <"pass">
+#    And this user view this post and get content
+#    And the user select view more option of new post
+#    And click share button
+#    And the user input text "<sharedPostType>" and "<shareContent>" and choose privacy "<sharedPrivacy>"
+#    And the user C - the friend of B in workspace2 login "<emailC>" and <"pass">
+#    Then this user see post with correct privacy and content
+#    And the user D - the colleague of B login login "<emailD>" and <"pass">
+#    Then this user see post with correct privacy and content
+#    And the user E - the friend and colleague of B login "<emailE>" and <"pass">
+#    Then this user see post with correct privacy and content
+#    Examples: src
+#      | privacy | content      | emailB                       | sharedPostType | shareContent          | sharedPrivacy | emailC               | emailD                         | emailD               | emailE | pass | userAviewOriginalContent | viewSharedContent |
+#      | friends | post friends | nguyenvanhieu@mailinator.com | content        | Share post of friends | friends       | cafe24h01@cafe24h.gq | trangnguyen0011@mailinator.com | thuha@mailinator.com |        |
+
+
+  @sharepost
+  Scenario: Check share post with different privacy
+    When the first user create post with privacy
+      | privacy    | content           |
+      | friends    | post with friends |
+      | in_company | post in company   |
+    And the second user login
+    #the user B - the friend in workspace1 login
+      | email                        | pass      |
+      | nguyenvanhieu@mailinator.com | 12345678a |
+    And share these post
+      | postName          | sharedPostType | sharedContent                       | sharedPrivacy |
+      | post with friends | text           | shared post with friend privacy     | friends       |
+      | post in company   | text           | shared post with in company privacy | in_company    |
+    And another user login and see post with correct privacy
+      | email                          | pass      | viewSharedContent1 | viewOriginalContent1 |
+      #the user C - the friend of B in workspace2
+      | cafe24h01@cafe24h.gq           | 12345678a | yes                | no                   |
+      #the user D - the colleague of B
+      | trangnguyen0011@mailinator.com | 12345678a | no                 | no                   |
+      #the user E - the friend and colleague of B
+      | thuha@mailinator.com           | 12345678a | yes                | no                   |
+      #the user F - is friend of A and B in workspace1
+      | thaothoi@mailinator.com        | 12345678a | yes                | yes                  |

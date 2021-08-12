@@ -7,7 +7,6 @@ import io.cucumber.datatable.DataTable;
 import net.serenitybdd.core.steps.UIInteractionSteps;
 import net.thucydides.core.annotations.Step;
 
-import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +22,9 @@ public class PostListVerify extends UIInteractionSteps {
     @Step("verify post text")
     public PostListVerify verifyPostText(String expectedText) {
         String actualPostContentText = postListAct.getContentTextOfPost();
-        assertThat(actualPostContentText.equals(expectedText));
+        System.out.println("Actual:" + actualPostContentText);
+        System.out.println("Expected:" + expectedText);
+        assertThat(actualPostContentText.equals(expectedText)).isTrue();
         return this;
     }
 
@@ -71,8 +72,8 @@ public class PostListVerify extends UIInteractionSteps {
     @Step("verify background of post")
     public PostListVerify verifyPostBackground(String inputName) {
         String actualBackgroundId = postListAct.getBackgroundIdOfPost();
-        for(BackgroundPost background: BackgroundPost.values()){
-            if(inputName.equalsIgnoreCase(background.getName())){
+        for (BackgroundPost background : BackgroundPost.values()) {
+            if (inputName.equalsIgnoreCase(background.getName())) {
                 assertThat(actualBackgroundId.contains(background.getId()));
             }
         }
@@ -103,7 +104,7 @@ public class PostListVerify extends UIInteractionSteps {
             System.out.println("View:" + view);
             System.out.println("Content:" + content);
 
-            viewPost = postListAct.viewPostContentByPrivacy(content);
+            viewPost = postListAct.viewPostStatus(content);
             if (view.equalsIgnoreCase("Yes")) {
                 assertThat(viewPost).isTrue();
             } else
@@ -166,6 +167,16 @@ public class PostListVerify extends UIInteractionSteps {
         System.out.println("Actual Tag List:" + actualTagList);
 //        assertThat(actualTagList.equals(expectedTagList)).isTrue();
         assertThat(actualTagList.containsAll(expectedTagList) && expectedTagList.containsAll(actualTagList)).isTrue();
+        return this;
+    }
+
+    @Step("verify post content by privacy")
+    public PostListVerify verifyPostContentByView(String view, String content) {
+        if (view.equalsIgnoreCase("yes")) {
+            assertThat(postListAct.viewPostStatus(content)).isTrue();
+        } else {
+            assertThat(postListAct.viewPostStatus(content)).isFalse();
+        }
         return this;
     }
 }

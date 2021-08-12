@@ -1,6 +1,7 @@
 package gapo.pilot.auto2.pages.createnewpost;
 
 import gapo.pilot.auto2.constant.BackgroundPost;
+import gapo.pilot.auto2.constant.Timeout;
 import gapo.pilot.auto2.helper.InteractionHelper;
 import gapo.pilot.auto2.helper.KeyboardHelper;
 import gapo.pilot.auto2.helper.UploadMedia;
@@ -10,6 +11,7 @@ import gapo.pilot.auto2.pages.postlist.PostListElement;
 import net.serenitybdd.core.steps.UIInteractionSteps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -89,7 +91,7 @@ public class CreatePostAction extends UIInteractionSteps {
     //select type to post
     public CreatePostAction selectTypeToPost(String name) {
         interactionHelper.waitAndClick(CreatePostElement.getPostTypeBtn(name));
-        waitFor(1000).milliseconds();
+        waitFor(Timeout.SHORT_TIME.getTimeOut()).milliseconds();
         return this;
     }
 
@@ -117,7 +119,7 @@ public class CreatePostAction extends UIInteractionSteps {
 
     //wait until success upload
     public CreatePostAction waitForUploadSuccess() {
-        waitFor(3000).milliseconds();
+        waitFor(Timeout.LONG_TIME.getTimeOut()).milliseconds();
         waitFor(ExpectedConditions.invisibilityOfElementLocated(CreatePostElement.PROGRESS_UPLOAD));
         return this;
     }
@@ -146,7 +148,7 @@ public class CreatePostAction extends UIInteractionSteps {
                 navigationAct.clickNotiMenu();
                 //reload to see new post
             } else {
-                waitFor(5000).milliseconds();
+                waitFor(Timeout.LONG_TIME.getTimeOut()).milliseconds();
             }
             getDriver().navigate().refresh();
         }
@@ -239,5 +241,10 @@ public class CreatePostAction extends UIInteractionSteps {
         $(CreatePostElement.Done_ON_SEARCH_TAG_BTN).click();
         return this;
     }
+
+    public void pasteContentToPostArea(){
+        $(CreatePostElement.POST_TEXT_AREA).sendKeys(Keys.CONTROL+ "v");
+    }
+
 
 }

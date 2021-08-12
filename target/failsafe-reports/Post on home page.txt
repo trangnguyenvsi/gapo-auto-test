@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: Post on home page
 -------------------------------------------------------------------------------
-Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 630.514 s - in Post on home page
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 87.22 s - in Post on home page

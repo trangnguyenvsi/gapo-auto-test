@@ -1,11 +1,9 @@
 package gapo.pilot.auto2.steps;
 
-import gapo.pilot.auto2.CucumberTestSuite;
 import gapo.pilot.auto2.helper.StringHelper;
 import gapo.pilot.auto2.helper.WebNavigationHelper;
-import gapo.pilot.auto2.openurl.UserProfileUrlAction;
-import gapo.pilot.auto2.pages.*;
 import gapo.pilot.auto2.pages.createnewpost.CreatePostAction;
+import gapo.pilot.auto2.pages.login.LoginAction;
 import gapo.pilot.auto2.pages.navigation.NavigationAction;
 import gapo.pilot.auto2.pages.notification.NotificationAction;
 import gapo.pilot.auto2.pages.notification.NotificationVerify;
@@ -21,6 +19,8 @@ import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 
@@ -41,6 +41,8 @@ public class CommonPostTest {
     int uploadSize;
     String mentionedUser;
     String inputPrivacy;
+    java.util.List<String> originalContentList = new ArrayList<String>();
+    java.util.List<String> shareContentList = new ArrayList<String>();
 
 
     /*
@@ -248,6 +250,7 @@ public class CommonPostTest {
                     .selectPostPrivacy(privacy)
                     .clickSharePost();
             Serenity.setSessionVariable("sizeBeforeDelete").to(postListAct.getSizeOfPostList());
+            originalContentList.add(content);
 
         }
     }
@@ -382,7 +385,7 @@ public class CommonPostTest {
     }
 
     @When("the user go to timeline page")
-    public void user_go_to_timeline_page(){
+    public void user_go_to_timeline_page() {
         navigationAct.goToTimeline();
     }
 
@@ -414,6 +417,7 @@ public class CommonPostTest {
         Serenity.setSessionVariable("postType").to(postType);
 
     }
+
     @And("the user click tag icon")
     public void the_user_click_tag_icon() {
         createPostAct.selectTypeToPost("Gắn thẻ đồng nghiệp");
@@ -467,7 +471,7 @@ public class CommonPostTest {
     @Then("the tag list is correct")
     public void the_tag_list_is_correct() {
         java.util.List<String> expectedTagList = Serenity.sessionVariableCalled("tagList");
-        System.out.println("expected tag list:"+expectedTagList);
+        System.out.println("expected tag list:" + expectedTagList);
         postListVerify.verifyDetailTagList(expectedTagList);
     }
 
@@ -536,5 +540,102 @@ public class CommonPostTest {
     @When("the user go back to previous page")
     public void the_user_go_back_to_previous_page() {
         webNavigationHelper.backward();
+    }
+
+    /*
+     *********************************** copy post link and post content **************************************
+     */
+
+    @When("the user get content of the new post {string}")
+    public void the_user_get_content_of_the_new_post(String postType) {
+        String postContent = postListAct.getContentTextOfPost();
+        System.out.println("Content:" + postContent);
+        Serenity.setSessionVariable("content").to(postContent);
+        Serenity.setSessionVariable("postType").to(postType);
+    }
+
+    @And("the user select copy post content")
+    public void the_user_select_copy_post_content() {
+        postListAct.selectCopyContentOfPost();
+    }
+
+    @And("paste the coppied content")
+    public void paste_the_coppied_content() {
+        createPostAct.pasteContentToPostArea();
+    }
+
+    @And("the user click update button")
+    public void the_user_click_update_button() {
+        createPostAct.clickUpdatePost();
+    }
+
+    @And("the user get the current post link {string}")
+    public void the_user_get_the_current_post_link(String postType) {
+        String postUrl = webNavigationHelper.getCurrentUrl();
+        Serenity.setSessionVariable("content").to(postUrl);
+        Serenity.setSessionVariable("postType").to(postType);
+    }
+
+    @And("the user select copy post link")
+    public void the_user_select_copy_post_link() {
+        postListAct.selectCopyLinkOfPost();
+    }
+
+    /*
+     ******************************************* Share Post ***************************************************
+     */
+
+    @And("the second user login")
+    public void the_second_user_login(DataTable account) {
+        another_user_login(account);
+
+    }
+
+    @And("this user view these posts and get contents")
+    public void this_user_view_these_post_and_get_content() {
+
+    }
+
+    @And("share these post")
+    public void share_these_post(DataTable data) throws AWTException {
+        java.util.List<Map<String, String>> inputData = data.asMaps(String.class, String.class);
+        for (Map<String, String> sharePost : inputData) {
+            String selectedPost = sharePost.get("postName");
+            String sharedPostType = sharePost.get("sharedPostType");
+            String sharedContent = sharePost.get("sharedContent");
+            String sharedPrivacy = sharePost.get("sharedPrivacy");
+            //get list of shared content
+            shareContentList.add(sharedContent);
+            postListAct.clickShareIconByPostContent(selectedPost);
+            createPostAct.selectPostPrivacy(sharedPrivacy)
+                    .inputTextToPostArea(sharedPostType, sharedContent)
+                    .clickSharePost();
+            webNavigationHelper.refresh();
+        }
+
+
+    }
+
+    @And("another user login and see post with correct privacy")
+    public void another_user_login_and_see_post_with_correct_privacy(DataTable data) {
+
+        java.util.List<Map<String, String>> inputData = data.asMaps(String.class, String.class);
+        for (Map<String, String> sharePost : inputData) {
+            String email = sharePost.get("email");
+            String pass = sharePost.get("pass");
+            String viewOriginalContent1 = sharePost.get("viewOriginalContent1");
+            String viewSharedContent1 = sharePost.get("viewSharedContent1");
+            navigationAct.logout();
+            loginAction.login(email, pass);
+
+            System.out.println("original:"+originalContentList);
+            System.out.println("shared:"+shareContentList);
+
+            postListAct.viewPostDetailByPostContent(shareContentList.get(0));
+            postListVerify.verifyPostContentByView(viewSharedContent1,shareContentList.get(0));
+            postListVerify.verifyPostContentByView(viewOriginalContent1,originalContentList.get(0));
+
+
+        }
     }
 }
